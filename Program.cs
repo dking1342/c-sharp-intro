@@ -4,13 +4,17 @@
     {
         static void Main(string[] args)
         {  
-          // math is a class
-          // math has methods
-          // methods use the static attribute 
-          // allows us to not make an instance of the math class
-          Console.WriteLine(Math.Sqrt(144));
+          // inheritance
+          // parent class
+          Chef chef = new Chef();
+          chef.MakeChicken();
+          chef.MakeSpecialDish();
 
-          UsefulTools.greet("kavooce"); // no need to instatiate new UsefulTools object
+          // child class
+          ItalianChef italianChef = new ItalianChef();
+          italianChef.MakeSalad();
+          italianChef.MakePasta();
+          italianChef.MakeSpecialDish();
         }
 
     }
