@@ -4,16 +4,13 @@
     {
         static void Main(string[] args)
         {  
-          // creating a new song
-          Song holiday = new Song("Holiday","Green Day", 200);
-          Console.WriteLine($"song count: {Song.songCount}"); // not specific to object
-          Song kashmir = new Song("Kashmir", "Led Zeppelin", 150);
-          Console.WriteLine($"song count: {Song.songCount}"); // not specific to object
+          // math is a class
+          // math has methods
+          // methods use the static attribute 
+          // allows us to not make an instance of the math class
+          Console.WriteLine(Math.Sqrt(144));
 
-          // Song.songCount is made for the class itself using the static attribute
-
-          Console.WriteLine(holiday.name);          
-          Console.WriteLine(kashmir.name);          
+          UsefulTools.greet("kavooce"); // no need to instatiate new UsefulTools object
         }
 
     }
