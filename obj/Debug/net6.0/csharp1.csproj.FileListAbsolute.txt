@@ -1,0 +1,15 @@
+/Users/davidking/Coding/Basics/csharp/csharp1/bin/Debug/net6.0/csharp1
+/Users/davidking/Coding/Basics/csharp/csharp1/bin/Debug/net6.0/csharp1.deps.json
+/Users/davidking/Coding/Basics/csharp/csharp1/bin/Debug/net6.0/csharp1.runtimeconfig.json
+/Users/davidking/Coding/Basics/csharp/csharp1/bin/Debug/net6.0/csharp1.dll
+/Users/davidking/Coding/Basics/csharp/csharp1/bin/Debug/net6.0/csharp1.pdb
+/Users/davidking/Coding/Basics/csharp/csharp1/obj/Debug/net6.0/csharp1.csproj.AssemblyReference.cache
+/Users/davidking/Coding/Basics/csharp/csharp1/obj/Debug/net6.0/csharp1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/davidking/Coding/Basics/csharp/csharp1/obj/Debug/net6.0/csharp1.AssemblyInfoInputs.cache
+/Users/davidking/Coding/Basics/csharp/csharp1/obj/Debug/net6.0/csharp1.AssemblyInfo.cs
+/Users/davidking/Coding/Basics/csharp/csharp1/obj/Debug/net6.0/csharp1.csproj.CoreCompileInputs.cache
+/Users/davidking/Coding/Basics/csharp/csharp1/obj/Debug/net6.0/csharp1.dll
+/Users/davidking/Coding/Basics/csharp/csharp1/obj/Debug/net6.0/refint/csharp1.dll
+/Users/davidking/Coding/Basics/csharp/csharp1/obj/Debug/net6.0/csharp1.pdb
+/Users/davidking/Coding/Basics/csharp/csharp1/obj/Debug/net6.0/csharp1.genruntimeconfig.cache
+/Users/davidking/Coding/Basics/csharp/csharp1/obj/Debug/net6.0/ref/csharp1.dll
