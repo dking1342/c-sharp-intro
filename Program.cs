@@ -4,39 +4,37 @@
     {
         static void Main(string[] args)
         {  
-          // while loops
-          // basic syntax
-          // while (condition) 
+          // for loops
+          // syntax
+          // for (statement 1; statement 2; statement 3) 
           // {
           //   // code block to be executed
           // }
 
-          // example using a while loop
-          int i = 0;
-          while (i < 5) 
+          // example a for loop
+          for (int i = 0; i < 5; i++) 
           {
             Console.WriteLine(i);
-            i++;
+          }
+          // example with a different increment value
+          for (int i = 0; i <= 10; i = i + 2) 
+          {
+            Console.WriteLine(i);
           }
 
-          // do while - executes at least one time then loops depending on condition
+          // foreach loop
           // syntax
-          // do 
+          // foreach (type variableName in arrayName) 
           // {
           //   // code block to be executed
           // }
-          // while (condition);
 
-          // example of a do while loop
-          int index = 0;
-          do 
+          // example of a foreach loop
+          string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+          foreach (string i in cars) 
           {
-            Console.WriteLine(index);
-            index++;
+            Console.WriteLine(i);
           }
-          while (index < 5);
-
-          
 
         }
 
