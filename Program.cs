@@ -4,13 +4,16 @@
     {
         static void Main(string[] args)
         {  
-          // creating a new movie
-          Movie avengers = new Movie("The Avengers","Josh Whedon","PG-13");
-          Movie shrek = new Movie("Shrek","Adam Adamson", "PG");
+          // creating a new song
+          Song holiday = new Song("Holiday","Green Day", 200);
+          Console.WriteLine($"song count: {Song.songCount}"); // not specific to object
+          Song kashmir = new Song("Kashmir", "Led Zeppelin", 150);
+          Console.WriteLine($"song count: {Song.songCount}"); // not specific to object
 
-          avengers.Rating = "R";
-          Console.WriteLine(avengers.Rating);
-          
+          // Song.songCount is made for the class itself using the static attribute
+
+          Console.WriteLine(holiday.name);          
+          Console.WriteLine(kashmir.name);          
         }
 
     }
