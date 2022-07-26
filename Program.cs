@@ -4,63 +4,39 @@
     {
         static void Main(string[] args)
         {  
-          // switch structure
-          // switch(expression) 
+          // while loops
+          // basic syntax
+          // while (condition) 
           // {
-          //   case x:
-          //     // code block
-          //     break;
-          //   case y:
-          //     // code block
-          //     break;
-          //   default:
-          //     // code block
-          //     break;
+          //   // code block to be executed
           // }
 
-          int day = 4;
-          switch (day) 
+          // example using a while loop
+          int i = 0;
+          while (i < 5) 
           {
-            case 1:
-              Console.WriteLine("Monday");
-              break;
-            case 2:
-              Console.WriteLine("Tuesday");
-              break;
-            case 3:
-              Console.WriteLine("Wednesday");
-              break;
-            case 4:
-              Console.WriteLine("Thursday");
-              break;
-            case 5:
-              Console.WriteLine("Friday");
-              break;
-            case 6:
-              Console.WriteLine("Saturday");
-              break;
-            case 7:
-              Console.WriteLine("Sunday");
-              break;
+            Console.WriteLine(i);
+            i++;
           }
-          // Outputs "Thursday" (day 4)
 
+          // do while - executes at least one time then loops depending on condition
+          // syntax
+          // do 
+          // {
+          //   // code block to be executed
+          // }
+          // while (condition);
 
-          // example using default
-          int today = 4;
-          switch (today) 
+          // example of a do while loop
+          int index = 0;
+          do 
           {
-            case 6:
-              Console.WriteLine("Today is Saturday.");
-              break;
-            case 7:
-              Console.WriteLine("Today is Sunday.");
-              break;
-            default:
-              Console.WriteLine("Looking forward to the Weekend.");
-              break;
+            Console.WriteLine(index);
+            index++;
           }
-          // Outputs "Looking forward to the Weekend."
+          while (index < 5);
+
+          
 
         }
 
