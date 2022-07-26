@@ -4,21 +4,29 @@
     {
         static void Main(string[] args)
         {  
-          // 2d array
-          int[,] numberGrid = {
-            { 2,5},
-            { 5,6},
-            { 7,9},
-          };
+          // exception handling
 
-          // access the value in the 2d array using this syntax
-          Console.WriteLine(numberGrid[0,1]);
+          try
+          {
+            Console.Write("enter a number: ");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("enter another number: ");
+            int num2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine( num1 / num2 );
+          }
+          catch (System.DivideByZeroException e) // you can be specific for the exception for generic and add more catch blocks
+          {
+            Console.WriteLine(e.Message);
+          } 
+          catch (System.FormatException e)
+          {
+            Console.WriteLine(e.Message);
+          }
+          finally
+          {
+            Console.WriteLine("finally block executed");
+          }
 
-          // all other array methods can be used with 2d arrays
-          // can have infinite dimensional arrays
-
-          // another way to create a 2d array which can be set later
-          int[,] myArray = new int[2,3];
         }
 
     }
