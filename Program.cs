@@ -4,13 +4,13 @@
     {
         static void Main(string[] args)
         {  
-          // creating a new student
-          Student student1 = new Student("Jim","Business",2.8);
-          Student student2 = new Student("Pam", "Art", 3.6);
+          // creating a new movie
+          Movie avengers = new Movie("The Avengers","Josh Whedon","PG-13");
+          Movie shrek = new Movie("Shrek","Adam Adamson", "PG");
 
-          // calling the methods
-          Console.WriteLine(student1.hasHonors());
-          Console.WriteLine(student2.hasHonors());
+          avengers.Rating = "R";
+          Console.WriteLine(avengers.Rating);
+          
         }
 
     }
