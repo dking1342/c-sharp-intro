@@ -4,38 +4,21 @@
     {
         static void Main(string[] args)
         {  
-          // for loops
-          // syntax
-          // for (statement 1; statement 2; statement 3) 
-          // {
-          //   // code block to be executed
-          // }
+          // 2d array
+          int[,] numberGrid = {
+            { 2,5},
+            { 5,6},
+            { 7,9},
+          };
 
-          // example a for loop
-          for (int i = 0; i < 5; i++) 
-          {
-            Console.WriteLine(i);
-          }
-          // example with a different increment value
-          for (int i = 0; i <= 10; i = i + 2) 
-          {
-            Console.WriteLine(i);
-          }
+          // access the value in the 2d array using this syntax
+          Console.WriteLine(numberGrid[0,1]);
 
-          // foreach loop
-          // syntax
-          // foreach (type variableName in arrayName) 
-          // {
-          //   // code block to be executed
-          // }
+          // all other array methods can be used with 2d arrays
+          // can have infinite dimensional arrays
 
-          // example of a foreach loop
-          string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
-          foreach (string i in cars) 
-          {
-            Console.WriteLine(i);
-          }
-
+          // another way to create a 2d array which can be set later
+          int[,] myArray = new int[2,3];
         }
 
     }
