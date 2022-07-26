@@ -4,12 +4,13 @@
     {
         static void Main(string[] args)
         {  
-          // creating a new book object with constructor
-          Book book1 = new Book("lotr","kavooce",400);
+          // creating a new student
+          Student student1 = new Student("Jim","Business",2.8);
+          Student student2 = new Student("Pam", "Art", 3.6);
 
-          Console.WriteLine($"Title: {book1.title}");
-          Console.WriteLine($"Author: {book1.author}");
-          Console.WriteLine($"Pages: {book1.pages}");
+          // calling the methods
+          Console.WriteLine(student1.hasHonors());
+          Console.WriteLine(student2.hasHonors());
         }
 
     }
