@@ -4,34 +4,24 @@
     {
         static void Main(string[] args)
         {   
-          // arrays
-          // creating array variables for different data types
-          string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
-          Console.WriteLine(cars[0]);
-          cars[0] = "Buick";
-          Console.WriteLine(cars[0]);
+          Console.Write("Enter your name: ");
+          string user = Console.ReadLine()!;
+          Console.Write("Enter your age: ");
+          int age = Convert.ToInt32(Console.ReadLine());
 
-          int[] ages = {10, 200, 30, 40};
-          Console.WriteLine($"Ages length: {ages.Length}");
-          Array.Sort(ages);
+          greet(user, age); // call the method inside the other method
+          greet("Jack");
+        }
 
-          Console.WriteLine($"Max age: {ages.Max()}");  // returns the largest value
-          Console.WriteLine($"Min age: {ages.Min()}");  // returns the smallest value
-          Console.WriteLine($"Age sum: {ages.Sum()}");  // returns the sum of elements
-
-          // other ways to create an array
-          // Create an array of four elements, and add values later
-          string[] vehicles1 = new string[4];
-
-          // Create an array of four elements and add values right away 
-          string[] vehicles2 = new string[4] {"Volvo", "BMW", "Ford", "Mazda"};
-
-          // Create an array of four elements without specifying the size 
-          string[] vehicles3 = new string[] {"Volvo", "BMW", "Ford", "Mazda"};
-
-          // Create an array of four elements, omitting the new keyword, and without specifying the size
-          string[] vehicles4 = {"Volvo", "BMW", "Ford", "Mazda"};
-
+        // methods - block of code to perform a task
+        // first keyword denotes the availability of the method (public, private, static, abstract, etc)
+        // second keyword denotes the return value (void, string, int, etc)
+        // third keyword in the name of the method
+        // fourth keyword is the parameter if there is one. the parameter must be data typed
+        // default value can be given to a parameter if required
+        static void greet(string name, int age = 30){
+          Console.WriteLine($"howdy {name}!"); // takes in the parameter within the method
+          Console.WriteLine($"you are {age} years old and you are so young!"); // takes in the parameter within the method
         }
     }
 }
