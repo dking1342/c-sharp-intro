@@ -44,13 +44,11 @@ public class BreakfastController : ControllerBase
       breakfast.Sweet
     );
 
-    return Ok(response);
-
-    // return CreatedAtAction(
-    //   actionName: nameof(GetBreakfast),
-    //   routeValues: new { id = breakfast.Id },
-    //   value: response
-    // );
+    return CreatedAtAction(
+      actionName: nameof(GetBreakfast),
+      routeValues: new { id = breakfast.Id },
+      value: response
+    );
   }
 
   [HttpGet("{id:guid}")]
@@ -75,12 +73,27 @@ public class BreakfastController : ControllerBase
   [HttpPut("{id:guid}")]
   public IActionResult UpsertBreakfast(Guid id, UpsertBreakfastRequest request)
   {
-    return Ok(request);
+    var breakfast = new Breakfast(
+      id,
+      request.Name,
+      request.Description,
+      request.StartDateTime,
+      request.EndDateTime,
+      DateTime.UtcNow,
+      request.Savory,
+      request.Sweet
+    );
+
+    _breakfastService.UpsertBreakfast(breakfast);
+
+    // return 201 if new breakfast was created
+    return NoContent();
   }
 
   [HttpDelete("{id:guid}")]
   public IActionResult DeleteBreakfast(Guid id)
   {
-    return Ok(id);
+    _breakfastService.DeleteBreakfast(id);
+    return NoContent();
   }
 }
