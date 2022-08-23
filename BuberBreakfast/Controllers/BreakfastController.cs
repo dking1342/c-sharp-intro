@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using BuberBreakfast.Contracts.Breakfast;
-using BuberBreakfasts.Models;
-using BuberBreakfasts.Services.Breakfasts;
+using BuberBreakfast.Models;
+using BuberBreakfast.Services.Breakfasts;
 
-namespace BuberBreakfasts.Controllers;
+namespace BuberBreakfast.Controllers;
 
 [ApiController]
 [Route("[controller]")]
@@ -54,6 +54,13 @@ public class BreakfastController : ControllerBase
   [HttpGet("{id:guid}")]
   public IActionResult GetBreakfast(Guid id)
   {
+    // ErrorOr<Breakfast> getBreakfastResult = _breakfastService.GetBreakfast(id);
+
+    // if (getBreakfastResult)
+    // {
+    //   return;
+    // }
+
     Breakfast breakfast = _breakfastService.GetBreakfast(id);
 
     var response = new BreakfastResponse(

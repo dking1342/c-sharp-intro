@@ -1,4 +1,4 @@
-using BuberBreakfasts.Services.Breakfasts;
+using BuberBreakfast.Services.Breakfasts;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.

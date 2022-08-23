@@ -1,4 +1,4 @@
-namespace BuberBreakfasts.Models;
+namespace BuberBreakfast.Models;
 
 public class Breakfast
 {
