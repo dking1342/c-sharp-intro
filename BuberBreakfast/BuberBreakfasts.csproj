@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ErrorOr" Version="0.1.0" />
+    <PackageReference Include="ErrorOr" Version="1.0.0" />
   </ItemGroup>
 
 

@@ -1,5 +1,5 @@
 using BuberBreakfast.Models;
-using BuberBreakfast.ServiceErrors;
+// using BuberBreakfast.ServiceErrors;
 using System;
 using System.Collections.Generic;
 
@@ -10,37 +10,46 @@ public class BreakfastService : IBreakfastService
   // normally would save to db
   
   private static readonly Dictionary<Guid, Breakfast> _breakfasts = new Dictionary<Guid, Breakfast>();
-  public void CreateBreakfast(Breakfast breakfast)
+  public List<Breakfast> CreateBreakfast(Breakfast breakfast)
   {
     _breakfasts.Add(breakfast.Id, breakfast);
-    
+
+    List<Breakfast> breakfastList = new List<Breakfast>();
+    breakfastList.Add(breakfast);
+    return breakfastList;
   }
-  public Breakfast GetBreakfast(Guid id)
+  public List<Breakfast> GetBreakfast(Guid id)
   {
-    if (_breakfasts.TryGetValue(id, out Breakfast breakfast))
-    {
-      return breakfast;
-    }
-
-    return new Breakfast();
-    
     // return _breakfasts[id];
+    List<Breakfast> breakfastList = new List<Breakfast>();
 
-    // if (_breakfasts.TryGetValue(id, out var breakfast))
-    // {
-    //   return breakfast;
-    // }
-
-    // return Errors.Breakfast.NotFound;
+    if (_breakfasts.TryGetValue(id, out Breakfast? breakfast))
+    {
+      breakfastList.Add(breakfast);
+    }
+    return breakfastList;
+    
   }
 
-  public void UpsertBreakfast(Breakfast breakfast)
+  public List<Breakfast> UpsertBreakfast(Guid id, Breakfast breakfast)
   {
     _breakfasts[breakfast.Id] = breakfast;
+
+    List<Breakfast> breakfastList = new List<Breakfast>();
+    if (_breakfasts.TryGetValue(id, out Breakfast? breakfastDict))
+    {
+      breakfastList.Add(breakfastDict);
+    }
+    return breakfastList;
   }
 
-  public void DeleteBreakfast(Guid id)
+  public bool DeleteBreakfast(Guid id)
   {
-    _breakfasts.Remove(id);
+    if (_breakfasts.TryGetValue(id, out Breakfast? breakfastDict))
+    {
+      _breakfasts.Remove(id);
+      return true;
+    }
+    return false;
   }
 }

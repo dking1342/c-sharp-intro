@@ -17,6 +17,11 @@ var app = builder.Build();
 {
     app.UseExceptionHandler("/error");
     app.UseHttpsRedirection();
+    app.UseHsts();
+
+    // app.UseStatusCodePages();
+    app.UseStatusCodePagesWithRedirects("/error-handler");
+
     // app.UseAuthorization();
     app.MapControllers();
     app.Run();

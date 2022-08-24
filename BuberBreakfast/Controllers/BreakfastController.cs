@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using System.Net;
+using System;
 using BuberBreakfast.Contracts.Breakfast;
 using BuberBreakfast.Models;
 using BuberBreakfast.Services.Breakfasts;
@@ -9,6 +12,7 @@ namespace BuberBreakfast.Controllers;
 [Route("[controller]")]
 public class BreakfastController : ControllerBase
 {
+  
   private readonly IBreakfastService _breakfastService;
 
   public BreakfastController(IBreakfastService breakfastService)
@@ -31,50 +35,56 @@ public class BreakfastController : ControllerBase
     );
 
     // save to db
-    _breakfastService.CreateBreakfast(breakfast);
-
-    var response = new BreakfastResponse(
-      breakfast.Id,
-      breakfast.Name,
-      breakfast.Description,
-      breakfast.StartDateTime,
-      breakfast.EndDateTime,
-      breakfast.LastModifiedDateTime,
-      breakfast.Savory,
-      breakfast.Sweet
+    var dbResponse = _breakfastService.CreateBreakfast(breakfast);
+    BreakfastHttpResponse response = new BreakfastHttpResponse(
+      DateTime.UtcNow,
+      201,
+      true,
+      "New breakfast created",
+      new List<Breakfast>()
     );
 
-    return CreatedAtAction(
-      actionName: nameof(GetBreakfast),
-      routeValues: new { id = breakfast.Id },
-      value: response
-    );
+    if(dbResponse?.Count > 0)
+    {
+      response.Data = dbResponse;
+      return Created("",response);
+    }
+    else 
+    {
+      response.StatusCode = 400;
+      response.Success = false;
+      response.Message = "Server Error";
+
+      return BadRequest(response);
+    }
+
   }
 
   [HttpGet("{id:guid}")]
   public IActionResult GetBreakfast(Guid id)
   {
-    // ErrorOr<Breakfast> getBreakfastResult = _breakfastService.GetBreakfast(id);
-
-    // if (getBreakfastResult)
-    // {
-    //   return;
-    // }
-
-    Breakfast breakfast = _breakfastService.GetBreakfast(id);
-
-    var response = new BreakfastResponse(
-      breakfast.Id,
-      breakfast.Name,
-      breakfast.Description,
-      breakfast.StartDateTime,
-      breakfast.EndDateTime,
-      breakfast.LastModifiedDateTime,
-      breakfast.Savory,
-      breakfast.Sweet
+    List<Breakfast> getBreakfastResult = _breakfastService.GetBreakfast(id);
+    BreakfastHttpResponse response = new BreakfastHttpResponse(
+      DateTime.UtcNow,
+      200,
+      true,
+      "Breakfast fetched",
+      new List<Breakfast>()
     );
 
-    return Ok(response);
+    if (getBreakfastResult?.Count > 0)
+    {
+      response.Data = getBreakfastResult;
+      return Ok(response);
+    }
+    else 
+    {
+      response.StatusCode = 404;
+      response.Success = false;
+      response.Message = "Invalid breakfast";
+
+      return NotFound(response);
+    }
   }
 
   [HttpPut("{id:guid}")]
@@ -91,16 +101,57 @@ public class BreakfastController : ControllerBase
       request.Sweet
     );
 
-    _breakfastService.UpsertBreakfast(breakfast);
+    List<Breakfast> dbResponse = _breakfastService.UpsertBreakfast(id, breakfast);
+    BreakfastHttpResponse response = new BreakfastHttpResponse(
+      DateTime.UtcNow,
+      200,
+      true,
+      "Breakfast updated",
+      new List<Breakfast>()
+    );
+
+    if(dbResponse?.Count > 0)
+    {
+      response.Data = dbResponse;
+      return Ok(response);
+    }
+    else 
+    {
+      response.StatusCode = 400;
+      response.Success = false;
+      response.Message = "Server Error";
+
+      return BadRequest(response);
+    }
 
     // return 201 if new breakfast was created
-    return NoContent();
+    // return NoContent();
   }
 
   [HttpDelete("{id:guid}")]
   public IActionResult DeleteBreakfast(Guid id)
   {
-    _breakfastService.DeleteBreakfast(id);
-    return NoContent();
+    bool dbResponse = _breakfastService.DeleteBreakfast(id);
+    BreakfastHttpResponse response = new BreakfastHttpResponse(
+      DateTime.UtcNow,
+      202,
+      true,
+      "Breakfast deleted",
+      new List<Breakfast>()
+    );
+
+    if(dbResponse)
+    {
+      return Accepted(response);
+    }
+    else 
+    {
+      response.StatusCode = 400;
+      response.Success = false;
+      response.Message = "Bad Request";
+
+      return BadRequest(response); 
+    }
+    // return NoContent();
   }
 }

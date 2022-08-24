@@ -1,12 +1,13 @@
 using BuberBreakfast.Models;
+using System.Collections.Generic;
 
 namespace BuberBreakfast.Services.Breakfasts;
 
 public interface IBreakfastService
 {
-  void CreateBreakfast(Breakfast breakfast);
-  Breakfast GetBreakfast(Guid id);
-  void UpsertBreakfast(Breakfast breakfast);
-  void DeleteBreakfast(Guid id);
+  List<Breakfast> CreateBreakfast(Breakfast breakfast);
+  List<Breakfast> GetBreakfast(Guid id);
+  List<Breakfast> UpsertBreakfast(Guid id, Breakfast breakfast);
+  bool DeleteBreakfast(Guid id);
 
 }
